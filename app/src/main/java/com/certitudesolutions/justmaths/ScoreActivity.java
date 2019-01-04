@@ -5,34 +5,31 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class ScoreActivity extends AppCompatActivity {
 
-    ImageButton btnPlay, btnShare, btnRate;
+    ImageButton bthReplay, btnShare, btnRate;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_score);
+        TextView tv = findViewById(R.id.score);
+        int score = getIntent().getIntExtra("score", 0);
+        tv.setText("Current Score : " + score);
 
-        btnPlay = findViewById(R.id.playBtn);
-        btnShare = findViewById(R.id.shareBtn);
-        btnRate = findViewById(R.id.rateBtn);
-
-        btnPlay.setOnClickListener(new View.OnClickListener() {
+        bthReplay = findViewById(R.id.replayBtn);
+        bthReplay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*
-                 *  Example of Explicit Intent
-                 *  When you click Play Button on the screen
-                 *  Game Activity will be started
-                 */
-
-                Intent i = new Intent(MainActivity.this, GameActivity.class);
+                Intent i = new Intent(ScoreActivity.this, GameActivity.class);
                 startActivity(i);
             }
         });
 
+        btnShare = findViewById(R.id.shareBtn);
         btnShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btnRate = findViewById(R.id.rateBtn);
         btnRate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,9 +54,16 @@ public class MainActivity extends AppCompatActivity {
                  *  Simple Toast Message To Display Message For Short Duration
                  *  Link that to your app landing page.
                  */
-                Toast.makeText(MainActivity.this,"You can open your Google Play landing page",Toast.LENGTH_LONG).show();
+                Toast.makeText(ScoreActivity.this,"You can open your Google Play landing page",Toast.LENGTH_LONG).show();
             }
         });
 
+    }
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        finish();
     }
 }
