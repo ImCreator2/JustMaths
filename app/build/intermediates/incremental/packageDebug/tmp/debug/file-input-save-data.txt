@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Thu Jan 03 21:37:01 IST 2019
+#Sat Jan 05 21:36:47 IST 2019
 0.baseType=DIRECTORY
 0.base=C\:\\Users\\admin\\AndroidStudioProjects\\JustMaths\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 0.path=classes.dex

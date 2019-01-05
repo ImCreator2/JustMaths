@@ -430,7 +430,6 @@ color switch_thumb_normal_material_dark
 color switch_thumb_normal_material_light
 color tooltip_background_dark
 color tooltip_background_light
-color white
 dimen abc_action_bar_content_inset_material
 dimen abc_action_bar_content_inset_with_nav
 dimen abc_action_bar_default_height_material
@@ -653,8 +652,10 @@ drawable baseline_star_rate_white_18
 drawable baseline_star_rate_white_24
 drawable baseline_star_rate_white_36
 drawable baseline_star_rate_white_48
+drawable ic_info_black_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable ic_replay_black_24dp
 drawable ic_share_black_24dp
 drawable notification_action_background
 drawable notification_bg
@@ -677,6 +678,7 @@ id FUNCTION
 id META
 id SHIFT
 id SYM
+id aboutBtn
 id action_bar
 id action_bar_activity_content
 id action_bar_container
@@ -705,6 +707,9 @@ id barrier
 id beginning
 id blocking
 id bottom
+id btnContainer
+id btnCorrect
+id btnIncorrect
 id buttonPanel
 id center
 id center_horizontal
@@ -767,9 +772,11 @@ id progress_circular
 id progress_horizontal
 id radio
 id rateBtn
+id replayBtn
 id right
 id right_icon
 id right_side
+id score
 id screen
 id scrollIndicatorDown
 id scrollIndicatorUp
@@ -815,7 +822,9 @@ id titleDividerNoCustom
 id title_template
 id top
 id topPanel
-id txtNumbers
+id txtScore
+id txtTime
+id txtViewQuestion
 id uniform
 id up
 id useLogo
@@ -857,6 +866,7 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_game
 layout activity_main
+layout activity_score
 layout notification_action
 layout notification_action_tombstone
 layout notification_template_custom_big

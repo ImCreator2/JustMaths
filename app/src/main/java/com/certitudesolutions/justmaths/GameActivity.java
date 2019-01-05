@@ -21,7 +21,7 @@ public class GameActivity extends AppCompatActivity {
     ImageButton btnCorrect;
     ImageButton btnIncorrect;
     boolean isResultCorrect;
-    int seconds = 59;
+    int seconds = 29;
     private int score = 0;
     private boolean stopTimer = false;
 
@@ -102,5 +102,12 @@ public class GameActivity extends AppCompatActivity {
         super.onPause();
         stopTimer = false;
         finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent i = new Intent(GameActivity.this, MainActivity.class);
+        startActivity(i);
     }
 }

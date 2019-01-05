@@ -1,6 +1,8 @@
 package com.certitudesolutions.justmaths;
 
 import android.content.Intent;
+import android.os.Handler;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,7 +11,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    ImageButton btnPlay, btnShare, btnRate;
+    ImageButton btnPlay, btnShare, btnRate, btnAbout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         btnPlay = findViewById(R.id.playBtn);
         btnShare = findViewById(R.id.shareBtn);
         btnRate = findViewById(R.id.rateBtn);
+        btnAbout = findViewById(R.id.aboutBtn);
 
         btnPlay.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,7 +32,9 @@ public class MainActivity extends AppCompatActivity {
                  */
 
                 Intent i = new Intent(MainActivity.this, GameActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(i);
+                finish();
             }
         });
 
@@ -60,5 +65,42 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btnAbout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
+                alertDialogBuilder.setTitle("Credits");
+                alertDialogBuilder.setMessage("App Source: Cheezycode\nDeveloper: ImCreator2 [ Ravikumar Tirumale ]");
+                AlertDialog aboutDialog = alertDialogBuilder.create();
+                aboutDialog.show();
+            }
+        });
+    }
+
+//    @Override
+//    protected void onPause() {
+//        super.onPause();
+//        finish();
+//    }
+
+    boolean doubleBackToExitPressedOnce = false;
+
+    @Override
+    public void onBackPressed() {
+        final Handler handler = new Handler();
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Press BACK again to exit", Toast.LENGTH_SHORT).show();
+
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce=false;
+            }
+        }, 2000);
     }
 }
